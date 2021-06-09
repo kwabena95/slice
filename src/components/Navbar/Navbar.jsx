@@ -9,6 +9,9 @@ const NavbarStyled = styled.div`
     text-transform: uppercase;
     color: #fff;
     text-shadow: 1px 1px 4px #380502;
+    position: fixed;
+    width: 100%;
+    z-index: 1;
 `;
 
 const Navbar = () => {
