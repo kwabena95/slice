@@ -12,16 +12,20 @@ const MenuStyled = styled.div`
 const Menu = () => {
     return (
         <MenuStyled>
-            <h2>Menu</h2>
-            <FoodGrid>
-                {foods.map((food, index) => (
-                    <Food img={food.img} key={index}>
-                        <FoodLabel>
-                            {food.name}
-                        </FoodLabel>
-                    </Food>
-                ))}
-            </FoodGrid>
+            {Object.entries(foods).map(([sectionName, foods]) => (
+                <>
+                    <h2 style={{ margin: '10px 0' }}>{sectionName}</h2>
+                    <FoodGrid>
+                        {foods.map((food, index) => (
+                            <Food img={food.img} key={index}>
+                                <FoodLabel>
+                                    {food.name}
+                                </FoodLabel>
+                            </Food>
+                        ))}
+                    </FoodGrid>
+                </>
+            ))}
         </MenuStyled>
     )
 }
