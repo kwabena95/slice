@@ -1,4 +1,5 @@
 import { createGlobalStyle } from 'styled-components';
+import Navbar from './components/Navbar/Navbar';
 
 
 // global styles
@@ -18,7 +19,7 @@ const App = () => {
   return (
     <>
       <GlobalStyle />
-      hello slice
+      <Navbar />
     </>
   )
 }
