@@ -13,6 +13,7 @@ export const Food = styled.div`
     font-weight: 600;
     border-radius: 7px;
     -webkit-box-shadow: -2px 11px 17px 0px rgba(0,0,0,0.37);
+    transition: all .3s;
     box-shadow: -2px 11px 17px 0px rgba(0,0,0,0.37);
     background-image: ${({ img }) => `url(${img})`};
     background-size: cover;
@@ -21,6 +22,7 @@ export const Food = styled.div`
     &:hover{
         cursor: pointer;
         opacity: 0.8;
+        transform: translateY(-3px)
     }
 `;
 
