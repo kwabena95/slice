@@ -16,8 +16,8 @@ const Menu = () => {
                 <>
                     <h2 style={{ margin: '10px 0' }}>{sectionName}</h2>
                     <FoodGrid>
-                        {foods.map((food, index) => (
-                            <Food img={food.img} key={index}>
+                        {foods.map((food) => (
+                            <Food img={food.img} key={food.id}>
                                 <FoodLabel>
                                     {food.name}
                                 </FoodLabel>
@@ -25,8 +25,9 @@ const Menu = () => {
                         ))}
                     </FoodGrid>
                 </>
-            ))}
-        </MenuStyled>
+            ))
+            }
+        </MenuStyled >
     )
 }
 
