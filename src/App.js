@@ -6,12 +6,20 @@ import Order from './components/Order/Order';
 import { GlobalStyle } from './styles/globalStyles';
 import { useOpenFood } from './hooks/useOpenFood';
 import { useOrders } from './hooks/useOrders';
+import { useTitle } from './hooks/useTitle';
+
+
+
+
 
 const App = () => {
 
   const openFood = useOpenFood();
   const orders = useOrders();
-
+  useTitle({
+    ...openFood,
+    ...orders
+  });
   return (
     <>
       <GlobalStyle />
