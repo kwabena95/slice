@@ -1,7 +1,7 @@
 import styled from 'styled-components';
 import { foods } from '../../data/foodData';
 import { FoodGrid, Food, FoodLabel } from './FoodGrid';
-
+import { formatPrice } from '../../data/foodData';
 
 
 const MenuStyled = styled.div`
@@ -19,7 +19,8 @@ const Menu = ({ setOpenFood }) => {
                         {foods.map((food) => (
                             <Food img={food.img} key={food.id} onClick={() => setOpenFood(food)}>
                                 <FoodLabel>
-                                    {food.name}
+                                    <div>{food.name}</div>
+                                    <div>{formatPrice(food.price)}</div>
                                 </FoodLabel>
                             </Food>
                         ))}

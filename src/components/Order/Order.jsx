@@ -1,5 +1,6 @@
 import styled from 'styled-components';
 import { DialogContent, DialogFooter, ConfirmButton } from '../FoodDialog/FoodDialog';
+import { formatPrice } from '../../data/foodData';
 
 
 const OrderStyled = styled.div`
@@ -20,6 +21,17 @@ const OrderContent = styled(DialogContent)`
     height: 100%;
 `;
 
+const OrderContainer = styled.div`
+    padding: 10px 0;
+    border-bottom: 1px solid grey;
+`;
+
+const OrderItem = styled.div`
+    padding: 10px 0;
+    display: grid;
+    grid-template-columns: 20px 150px 20px 60px;
+    justify-content: space-between;
+`;
 
 
 const Order = ({ orders }) => {
@@ -27,7 +39,21 @@ const Order = ({ orders }) => {
         <OrderStyled>
             {orders.length === 0 ?
                 (<OrderContent>Your order is empty.</OrderContent>) :
-                (<OrderContent>{orders.length > 1 ? `Found ${orders.length} orders` : `Found ${orders.length} order`}</OrderContent>)}
+                (<OrderContent>
+                    {" "}
+                    <OrderContainer>
+                        Your Order:
+                    </OrderContainer>{" "}
+                    {orders.map(order => (
+                        <OrderContainer>
+                            <OrderItem>
+                                <div>1</div>
+                                <div>{order.name}</div>
+                                <div>{formatPrice(order.price)}</div>
+                            </OrderItem>
+                        </OrderContainer>
+                    ))}
+                </OrderContent>)}
 
             <DialogFooter>
                 <ConfirmButton>Checkout</ConfirmButton>
