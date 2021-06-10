@@ -22,12 +22,13 @@ const OrderContent = styled(DialogContent)`
 
 
 
-const Order = () => {
+const Order = ({ orders }) => {
     return (
         <OrderStyled>
-            <OrderContent>
-                Your order is empty.
-            </OrderContent>
+            {orders.length === 0 ?
+                (<OrderContent>Your order is empty.</OrderContent>) :
+                (<OrderContent>{orders.length > 1 ? `Found ${orders.length} orders` : `Found ${orders.length} order`}</OrderContent>)}
+
             <DialogFooter>
                 <ConfirmButton>Checkout</ConfirmButton>
             </DialogFooter>

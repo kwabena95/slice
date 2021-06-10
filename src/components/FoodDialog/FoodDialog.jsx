@@ -66,12 +66,20 @@ export const ConfirmButton = styled.div`
    font-size: 20px;
 `;
 
-const FoodDialog = ({ openFood, setOpenFood }) => {
+const FoodDialog = ({ openFood, setOpenFood, orders, setOrders }) => {
     function close() {
         setOpenFood();
     }
     if (!openFood) return null;
 
+    const order = {
+        name: openFood.name
+    }
+
+    const addToOrder = () => {
+        setOrders([...orders, order]);
+        close();
+    }
     return openFood ? (
         <>
             <DialogShadow onClick={close} />
@@ -81,7 +89,7 @@ const FoodDialog = ({ openFood, setOpenFood }) => {
                 </DialogBanner>
                 <DialogContent />
                 <DialogFooter>
-                    <ConfirmButton>Add to order</ConfirmButton>
+                    <ConfirmButton onClick={addToOrder}>Add to order</ConfirmButton>
                 </DialogFooter>
             </Dialog>
         </>
