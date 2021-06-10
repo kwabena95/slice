@@ -1,5 +1,5 @@
 import Banner from './components/Banner/Banner';
-import FoodDialog from './components/FoodDialog/FoodDialog';
+import { FoodDialog } from './components/FoodDialog/FoodDialog';
 import Menu from './components/Menu/Menu';
 import Navbar from './components/Navbar/Navbar';
 import Order from './components/Order/Order';
