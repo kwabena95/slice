@@ -11,4 +11,7 @@ export const GlobalStyle = createGlobalStyle`
     min-height: 100vh;
     font-family: 'Source Sans Pro', sans-serif;
   }
+  h3{
+    margin: 1rem 0;
+  }
 `

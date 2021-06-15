@@ -33,6 +33,10 @@ const OrderItem = styled.div`
     justify-content: space-between;
 `;
 
+const DetailItem = styled.div`
+    color: gray;
+    font-size: 10px;
+`;
 
 const Order = ({ orders }) => {
     const subTotal = orders.reduce((total, order) => {
@@ -59,6 +63,13 @@ const Order = ({ orders }) => {
                                 <div>{order.name}</div>
                                 <div>{formatPrice(getPrice(order))}</div>
                             </OrderItem>
+                            <DetailItem>
+                                {
+                                    order.toppings.filter(t => t.checked)
+                                        .map(topping => topping.name)
+                                        .join(", ")
+                                }
+                            </DetailItem>
                         </OrderContainer>
                     ))}
                     <OrderContainer>
