@@ -14,4 +14,7 @@ export const GlobalStyle = createGlobalStyle`
   h3{
     margin: 1rem 0;
   }
+  .soda-label{
+    margin: 0 10px;
+  }
 `
