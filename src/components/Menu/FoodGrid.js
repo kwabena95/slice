@@ -5,6 +5,10 @@ export const FoodGrid = styled.div`
     grid-template-columns: repeat(2, 1fr);
     gap: 20px;
     padding-bottom: 40px;
+
+    @media(max-width: 400px){
+    grid-template-columns: 1fr;
+  }
 `;
 
 export const Food = styled.div`
