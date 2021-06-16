@@ -1,25 +1,40 @@
-import logo from './logo.svg';
-import './App.css';
+import Banner from './components/Banner/Banner';
+import { FoodDialog } from './components/FoodDialog/FoodDialog';
+import Menu from './components/Menu/Menu';
+import Navbar from './components/Navbar/Navbar';
+import Order from './components/Order/Order';
+import { GlobalStyle } from './styles/globalStyles';
+import { useOpenFood } from './hooks/useOpenFood';
+import { useOrders } from './hooks/useOrders';
+import { useTitle } from './hooks/useTitle';
+import { useAuthentication } from './hooks/useAuthentication';
+import OrderDialog from './components/Order/OrderDialog';
+import { useOrderDialog } from './hooks/useOrderDialog';
 
-function App() {
+const App = () => {
+
+  const openFood = useOpenFood();
+  const orders = useOrders();
+  const auth = useAuthentication();
+  const orderDialog = useOrderDialog();
+  useTitle({
+    ...openFood,
+    ...orders
+  });
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+    <>
+      <GlobalStyle />
+      <OrderDialog {...orderDialog} {...orders} />
+      <FoodDialog {...openFood} {...orders} />
+      <Navbar {...auth} />
+      <Order {...orders} {...openFood} {...auth} {...orderDialog} />
+      <Banner />
+      <Menu {...openFood} />
+    </>
+  )
 }
 
-export default App;
+export default App
+
+
+
