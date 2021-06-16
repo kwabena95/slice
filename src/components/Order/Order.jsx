@@ -45,7 +45,7 @@ const DetailItem = styled.div`
     font-size: 10px;
 `;
 
-const Order = ({ orders, setOrders, setOpenFood }) => {
+const Order = ({ orders, setOrders, setOpenFood, login, loggedIn }) => {
     const subTotal = orders.reduce((total, order) => {
         return total + getPrice(order);
     }, 0);
@@ -115,7 +115,13 @@ const Order = ({ orders, setOrders, setOpenFood }) => {
                 </OrderContent>)}
 
             <DialogFooter>
-                <ConfirmButton>Checkout</ConfirmButton>
+                <ConfirmButton onClick={() => {
+                    if (loggedIn) {
+                        console.log('logged in')
+                    } else {
+                        login();
+                    }
+                }}>Checkout</ConfirmButton>
             </DialogFooter>
         </OrderStyled>
     )
